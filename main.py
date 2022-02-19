@@ -118,19 +118,6 @@ def draw_winner(game_over_text):
 
 
 def main():
-    red_h = 10
-    yellow_h = 10
-    yellow_bullets = []
-    red_bullets = []
-
-    red = pygame.Rect(WIDTH * 7 // 8 - SHIP_SIZE[0] // 2,
-                      HEIGHT // 2 - SHIP_SIZE[1] // 2, SHIP_SIZE[1], SHIP_SIZE[0])
-    yellow = pygame.Rect(WIDTH * 1 // 8 - SHIP_SIZE[0] // 2,
-                         HEIGHT // 2 - SHIP_SIZE[1] // 2, SHIP_SIZE[1], SHIP_SIZE[0])
-
-    clock = pygame.time.Clock()
-
-    run = True
 
     while run:
         clock.tick(FPS)
