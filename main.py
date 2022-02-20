@@ -6,7 +6,6 @@ pygame.font.init()
 pygame.mixer.init()
 pygame.init()
 
-
 HEALTH_FONT = pygame.font.SysFont("Comicsans", 40)
 END_FONT = pygame.font.SysFont("Comicsans", 50)
 
@@ -118,6 +117,19 @@ def draw_winner(game_over_text):
 
 
 def main():
+    red_h = 10
+    yellow_h = 10
+    yellow_bullets = []
+    red_bullets = []
+
+    red = pygame.Rect(WIDTH * 7 // 8 - SHIP_SIZE[0] // 2,
+                      HEIGHT // 2 - SHIP_SIZE[1] // 2, SHIP_SIZE[1], SHIP_SIZE[0])
+    yellow = pygame.Rect(WIDTH * 1 // 8 - SHIP_SIZE[0] // 2,
+                         HEIGHT // 2 - SHIP_SIZE[1] // 2, SHIP_SIZE[1], SHIP_SIZE[0])
+
+    clock = pygame.time.Clock()
+
+    run = True
 
     while run:
         clock.tick(FPS)
@@ -125,7 +137,6 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 exit()
-
 
             if event.type == RED_HIT:
                 red_h -= 1
@@ -157,7 +168,6 @@ def main():
                         red_bullets, yellow_bullets,
                         red_h, yellow_h)
 
-
         game_over_text = ""
         if red_h <= 0:
             game_over_text = "Yellow is the Winner"
@@ -172,7 +182,6 @@ def main():
         key_pressed = pygame.key.get_pressed()
         yellow_handle_movement(key_pressed, yellow)
         red_handle_movement(key_pressed, red)
-
 
 
 if __name__ == '__main__':
